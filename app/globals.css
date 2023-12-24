@@ -4,11 +4,13 @@
 
 :root {
   @apply bg-background-500;
+  scroll-behavior: smooth;
 }
 
 body {
   @apply text-base text-light;
-  font-family: var(--font-ubuntu);
+  /* font-family: var(--font-ubuntu); */
+  font-family: var(--font-notoSans);
 }
 
 h1,
@@ -16,6 +18,7 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   font-family: var(--font-notoSans);
 }
