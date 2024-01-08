@@ -15,18 +15,37 @@ export type PersonalInformation = {
   aboutMe: string;
 };
 
-export enum TechSkillEnum {
+export enum TechSkillTypeEnum {
   LANGUAGE = 'language',
   FRONTEND = 'frontend',
   BACKEND = 'backend',
   DATABASE = 'database',
-  OTHER = 'other',
+  OPERATION = 'operation',
+}
+
+export enum SkillIdEnum {
+  PHP = 'php',
+  JS = 'js',
+  TS = 'ts',
+  TAILWIND = 'tailwind',
+  HTML = 'html',
+  GITHUB_ACTIONS = 'github_actions',
+  CSS = 'css',
+  PYTHON = 'python',
+  NODEJS = 'nodejs',
+  EXPRESSJS = 'expressjs',
+  REACTJS = 'reactjs',
+  VUEJS = 'vuejs',
+  BOOTSTRAP = 'bootstrap',
+  JQUERY = 'jquery',
+  MYSQL = 'mysql',
+  DOCKER = 'docker',
 }
 
 export type TechSkill = {
-  skillId: string;
+  skillId: SkillIdEnum;
   skillTitle: string;
-  type: TechSkillEnum;
+  type: TechSkillTypeEnum;
   level: number;
 };
 export type TechSkills = TechSkill[];

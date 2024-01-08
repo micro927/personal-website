@@ -1,4 +1,4 @@
-import { ContactIconEnum } from '../core/types/icon';
+import { ContactIconEnum } from '../core/types/app';
 import { iconStyleMapping } from '../core/contactIconStyleMapping';
 import Link from 'next/link';
 import { cx } from '@emotion/css';

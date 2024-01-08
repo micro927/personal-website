@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "Microsoftoutlook"
-    ]
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib"
 }

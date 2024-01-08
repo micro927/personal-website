@@ -3,7 +3,7 @@ import { PersonalInformation } from '@/app/core/types/data';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import ContactIcon from '../contactIcon';
-import { ContactIconEnum } from '@/app/core/types/icon';
+import { ContactIconEnum } from '@/app/core/types/app';
 import { additionalSubtitleList } from '@/app/core/welcomeAdditionalSubtitleList';
 
 function Welcome({
@@ -41,7 +41,10 @@ function Welcome({
   }, [displaySubtitle]);
 
   return (
-    <section className="flex h-screen w-full items-center md:h-[95vh]">
+    <section
+      id="welcome"
+      className="flex h-screen w-full items-center md:h-[85vh]"
+    >
       <div className="flex w-full flex-col">
         <div className="group flex w-full select-none items-center justify-between">
           <div className="flex flex-col gap-4">

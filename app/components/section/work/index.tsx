@@ -3,7 +3,7 @@ import WorkCard from './components/workCard';
 
 function Work({ work }: { work: Work }) {
   return (
-    <section>
+    <section id="work">
       <h3 className="text-right text-4xl font-semibold">Work Experience</h3>
       <div className="flex w-full flex-col gap-2 rounded-xl">
         {work.reverse().map((work, key) => (

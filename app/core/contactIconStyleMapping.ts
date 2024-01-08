@@ -1,5 +1,5 @@
 import { ContactIconStyleMapping } from './types/app';
-import { ContactIconEnum } from './types/icon';
+import { ContactIconEnum } from './types/app';
 import {
   SiGithub,
   SiLinkedin,

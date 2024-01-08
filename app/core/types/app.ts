@@ -1,12 +1,18 @@
 import { ComponentProps } from 'react';
-import { ContactIconEnum } from './icon';
-import { IconType } from 'react-icons';
+import type { IconType } from 'react-icons';
 
 export type MenuList = {
   title: string;
   shortTitle?: string;
   link: string;
 }[];
+
+export enum ContactIconEnum {
+  GITHUB = 'github',
+  LINKEDIN = 'linkedin',
+  EMAIL = 'email',
+  FACEBOOK = 'facebook',
+}
 
 export type ContactIconStyleMapping = Record<
   ContactIconEnum,
