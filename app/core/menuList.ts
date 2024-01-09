@@ -2,11 +2,11 @@ import { MenuList } from '../core/types/app';
 
 export const menuList: MenuList = [
   {
-    title: 'About Me',
+    title: 'About me',
     link: 'about-me',
   },
   {
-    title: 'Work Experience',
+    title: 'Work experience',
     shortTitle: 'Work',
     link: 'work',
   },

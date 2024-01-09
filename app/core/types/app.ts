@@ -26,7 +26,7 @@ export enum VariantEnum {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
   ACCENT = 'accent',
-  LIGHT = 'light',
+  DARK = 'dark',
 }
 
 export type ButtonProps = {

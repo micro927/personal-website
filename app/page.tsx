@@ -2,24 +2,26 @@ import { menuList } from './core/menuList';
 import { getData } from './core/function/getData';
 import Navbar from './components/navbar';
 import Welcome from './components/section/welcome';
-import AboutMe from './components/section/aboutMe';
 import Work from './components/section/work';
-import TechStacks from './components/techStacks';
+import TechStacks from './components/section/techStacks';
+import Education from './components/section/education';
+import Footer from './components/footer';
 
 export default async function Home() {
-  const { personalInformation, work, techSkills } = await getData();
+  const { personalInformation, work, techSkills, education } = await getData();
 
   return (
     <div className="flex min-h-screen w-screen flex-col items-center">
       <header className="w-full">
         <Navbar menuList={menuList} />
       </header>
-      <main className="flex w-full max-w-[1044px] flex-col gap-20 px-5">
+      <main className="flex w-full flex-col">
         <Welcome personalInformation={personalInformation} />
-        <AboutMe message={personalInformation.aboutMe} />
         <Work work={work} />
-        <TechStacks stacks={techSkills} work={work} />
+        <TechStacks skills={techSkills} work={work} />
+        <Education education={education} />
       </main>
+      <Footer />
     </div>
   );
 }

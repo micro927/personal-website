@@ -1,20 +1,14 @@
 import type { Metadata } from 'next';
-import { Ubuntu, Noto_Sans } from 'next/font/google';
+import { Nunito_Sans } from 'next/font/google';
 import './globals.css';
 
-const ubuntu = Ubuntu({
+const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
-  variable: '--font-ubuntu',
-});
-const notoSans = Noto_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-notoSans',
+  weight: ['500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
-  title: 'Sitthiphon Skulphan :: Software Developer',
+  title: 'Sitthiphon Skulphan | Software Developer',
   description: 'personal information and resume website',
 };
 
@@ -25,9 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${ubuntu.variable} ${notoSans.variable}`}>
-        {children}
-      </body>
+      <body className={nunitoSans.className}>{children}</body>
     </html>
   );
 }

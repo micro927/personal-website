@@ -4,7 +4,11 @@ import { SkillIdEnum } from '@/app/core/types/data';
 
 const SkillIcon = (props: IconBaseProps & { skillId: SkillIdEnum }) => {
   const ThisIcon = getSkillIcon(props.skillId);
-  return <>{ThisIcon && <ThisIcon {...props} />}</>;
+  const iconBaseProps = (({ skillId, ...rest }) => {
+    if (skillId) return rest;
+  })(props);
+
+  return <>{ThisIcon && <ThisIcon {...iconBaseProps} />}</>;
 };
 
 export default SkillIcon;

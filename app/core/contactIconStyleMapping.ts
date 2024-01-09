@@ -10,18 +10,18 @@ import {
 export const iconStyleMapping: ContactIconStyleMapping = {
   [ContactIconEnum.GITHUB]: {
     icon: SiGithub,
-    color: 'group-hover:bg-black',
+    color: 'text-black',
   },
   [ContactIconEnum.LINKEDIN]: {
     icon: SiLinkedin,
-    color: 'group-hover:bg-linkedin',
+    color: 'text-linkedin',
   },
   [ContactIconEnum.EMAIL]: {
     icon: SiMicrosoftoutlook,
-    color: 'group-hover:bg-outlook',
+    color: 'text-outlook',
   },
   [ContactIconEnum.FACEBOOK]: {
     icon: SiFacebook,
-    color: 'group-hover:bg-facebook',
+    color: 'text-facebook',
   },
 };

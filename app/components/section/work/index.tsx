@@ -1,16 +1,22 @@
 import { Work } from '@/app/core/types/data';
 import WorkCard from './components/workCard';
+import SectionBox from '../../sectionBox';
 
 function Work({ work }: { work: Work }) {
   return (
-    <section id="work">
-      <h3 className="text-right text-4xl font-semibold">Work Experience</h3>
-      <div className="flex w-full flex-col gap-2 rounded-xl">
-        {work.reverse().map((work, key) => (
-          <WorkCard key={key} work={work} />
-        ))}
+    <SectionBox id="work" coloredBackground>
+      <div className="flex flex-col gap-10">
+        <div>
+          <h3 className="text-3xl font-bold">Work experience</h3>
+        </div>
+        <hr />
+        <div className="flex w-full flex-col gap-2">
+          {work.reverse().map((work, key) => (
+            <WorkCard key={key} work={work} />
+          ))}
+        </div>
       </div>
-    </section>
+    </SectionBox>
   );
 }
 

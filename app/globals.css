@@ -3,14 +3,12 @@
 @tailwind utilities;
 
 :root {
-  @apply bg-background-500;
   scroll-behavior: smooth;
+  scroll-margin-bottom: 10rem;
 }
 
 body {
-  @apply text-base text-light;
-  /* font-family: var(--font-ubuntu); */
-  font-family: var(--font-notoSans);
+  @apply text-base font-medium  text-gray-600;
 }
 
 h1,
@@ -18,7 +16,6 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
-  font-family: var(--font-notoSans);
+h6 {
+  @apply text-dark;
 }

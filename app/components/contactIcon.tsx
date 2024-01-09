@@ -6,25 +6,20 @@ function ContactIcon({ icon, link }: { icon: ContactIconEnum; link: string }) {
   const IconLogo = iconStyleMapping[icon].icon;
   const hrefPrefix = icon === ContactIconEnum.EMAIL ? 'mailto:' : 'https://';
   return (
-    <div className="group">
-      <Link
-        href={`${hrefPrefix}${link}`}
-        aria-label={`to ${icon}`}
-        target={'_blank'}
-        className={cx(
-          `flex items-center justify-center overflow-hidden rounded-xl bg-white p-2 transition duration-150 ease-out group-hover:scale-125`,
-          iconStyleMapping[icon].color,
-        )}
-      >
-        <IconLogo
-          className={cx(
-            'bg-white text-black transition duration-150 group-hover:text-white',
-            iconStyleMapping[icon].color,
-          )}
-          size={20}
-        />
-      </Link>
-    </div>
+    <Link
+      href={`${hrefPrefix}${link}`}
+      aria-label={`to ${icon}`}
+      target={'_blank'}
+      className={cx(`group flex cursor-pointer flex-col items-center gap-3`)}
+    >
+      <IconLogo
+        size={40}
+        className="text-gray-400 transition duration-700 ease-out group-hover:scale-110 group-hover:text-dark"
+      />
+      <p className=" -translate-y-3 text-lg font-bold opacity-0 transition duration-200 first-letter:uppercase group-hover:-translate-y-0 group-hover:opacity-100">
+        {icon}
+      </p>
+    </Link>
   );
 }
 
