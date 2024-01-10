@@ -17,26 +17,26 @@ import {
   SiTypescript,
   SiTailwindcss,
 } from 'react-icons/si';
-import { SkillIdEnum } from '../types/data';
+import { TechSkillIdEnum } from '../types/data';
 
-export function getSkillIcon(skillId: SkillIdEnum) {
-  const skillIconMapping: Record<SkillIdEnum, IconType> = {
-    [SkillIdEnum.PHP]: SiPhp,
-    [SkillIdEnum.JS]: SiJavascript,
-    [SkillIdEnum.TS]: SiTypescript,
-    [SkillIdEnum.TAILWIND]: SiTailwindcss,
-    [SkillIdEnum.HTML]: SiHtml5,
-    [SkillIdEnum.GITHUB_ACTIONS]: SiGithubactions,
-    [SkillIdEnum.CSS]: SiCss3,
-    [SkillIdEnum.PYTHON]: SiPython,
-    [SkillIdEnum.NODEJS]: SiNodedotjs,
-    [SkillIdEnum.EXPRESSJS]: SiExpress,
-    [SkillIdEnum.REACTJS]: SiReact,
-    [SkillIdEnum.VUEJS]: SiVuedotjs,
-    [SkillIdEnum.BOOTSTRAP]: SiBootstrap,
-    [SkillIdEnum.JQUERY]: SiJquery,
-    [SkillIdEnum.MYSQL]: SiMysql,
-    [SkillIdEnum.DOCKER]: SiDocker,
+export function getSkillIcon(skillId: TechSkillIdEnum) {
+  const skillIconMapping: Record<TechSkillIdEnum, IconType> = {
+    [TechSkillIdEnum.PHP]: SiPhp,
+    [TechSkillIdEnum.JS]: SiJavascript,
+    [TechSkillIdEnum.TS]: SiTypescript,
+    [TechSkillIdEnum.TAILWIND]: SiTailwindcss,
+    [TechSkillIdEnum.HTML]: SiHtml5,
+    [TechSkillIdEnum.GITHUB_ACTIONS]: SiGithubactions,
+    [TechSkillIdEnum.CSS]: SiCss3,
+    [TechSkillIdEnum.PYTHON]: SiPython,
+    [TechSkillIdEnum.NODEJS]: SiNodedotjs,
+    [TechSkillIdEnum.EXPRESSJS]: SiExpress,
+    [TechSkillIdEnum.REACTJS]: SiReact,
+    [TechSkillIdEnum.VUEJS]: SiVuedotjs,
+    [TechSkillIdEnum.BOOTSTRAP]: SiBootstrap,
+    [TechSkillIdEnum.JQUERY]: SiJquery,
+    [TechSkillIdEnum.MYSQL]: SiMysql,
+    [TechSkillIdEnum.DOCKER]: SiDocker,
   };
   return skillIconMapping?.[skillId] ?? undefined;
 }

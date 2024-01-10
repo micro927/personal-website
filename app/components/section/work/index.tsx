@@ -2,7 +2,7 @@ import { Work } from '@/app/core/types/data';
 import WorkCard from './components/workCard';
 import SectionBox from '../../sectionBox';
 
-function Work({ work }: { work: Work }) {
+function Work({ works }: { works: Work[] }) {
   return (
     <SectionBox id="work" coloredBackground>
       <div className="flex flex-col gap-10">
@@ -11,7 +11,7 @@ function Work({ work }: { work: Work }) {
         </div>
         <hr />
         <div className="flex w-full flex-col gap-2">
-          {work.reverse().map((work, key) => (
+          {works.reverse().map((work, key) => (
             <WorkCard key={key} work={work} />
           ))}
         </div>

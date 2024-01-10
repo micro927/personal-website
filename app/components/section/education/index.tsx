@@ -2,7 +2,7 @@ import { FaPlus } from 'react-icons/fa';
 import SectionBox from '../../sectionBox';
 import { Education } from '@/app/core/types/data';
 
-function Education({ education }: { education: Education }) {
+function Education({ educations }: { educations: Education[] }) {
   return (
     <SectionBox id="education">
       <div className="flex flex-col gap-10">
@@ -11,7 +11,7 @@ function Education({ education }: { education: Education }) {
         </div>
         {/* <hr /> */}
         <div className="flex w-full flex-col gap-2 rounded-xl bg-slate-50 px-8">
-          {education.map(({ levelTitle, institute, yearGrad }, key) => {
+          {educations.map(({ levelTitle, institute, yearGrad }, key) => {
             return (
               <div
                 key={key}
@@ -19,7 +19,7 @@ function Education({ education }: { education: Education }) {
               >
                 <FaPlus size={20} />
                 <div className="gap-2">
-                  <h5 className="text-lg">
+                  <h5 className="text-lg font-bold">
                     {levelTitle} ({yearGrad})
                   </h5>
                   <p className="text-sm">{institute}</p>

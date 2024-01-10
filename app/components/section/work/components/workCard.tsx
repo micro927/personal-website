@@ -12,7 +12,7 @@ function WorkCard({ work }: { work: WorkItem }) {
     dateEnd,
     organization,
     // jobField,
-    // tagList,
+    // skillList,
     // descriptionList,
   } = work;
   // const isDeveloperJob = jobField === 'developer';

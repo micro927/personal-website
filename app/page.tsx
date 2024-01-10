@@ -8,7 +8,8 @@ import Education from './components/section/education';
 import Footer from './components/footer';
 
 export default async function Home() {
-  const { personalInformation, work, techSkills, education } = await getData();
+  const { personalInformation, works, techSkills, educations } =
+    await getData();
 
   return (
     <div className="flex min-h-screen w-screen flex-col items-center">
@@ -17,9 +18,9 @@ export default async function Home() {
       </header>
       <main className="flex w-full flex-col">
         <Welcome personalInformation={personalInformation} />
-        <Work work={work} />
-        <TechStacks skills={techSkills} work={work} />
-        <Education education={education} />
+        <Work works={works} />
+        <TechStacks skills={techSkills} works={works} />
+        <Education educations={educations} />
       </main>
       <Footer />
     </div>

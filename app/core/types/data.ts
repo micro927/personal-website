@@ -1,20 +1,3 @@
-export type PersonalInformation = {
-  name: string;
-  surname: string;
-  nameTH: string;
-  surnameTH: string;
-  nickname: string;
-  born: string;
-  hometown: string;
-  phone: string;
-  email: string;
-  linkedin: string;
-  github: string;
-  facebook: string;
-  mainJobTitle: string;
-  aboutMe: string;
-};
-
 export enum TechSkillTypeEnum {
   LANGUAGE = 'language',
   FRONTEND = 'frontend',
@@ -23,7 +6,7 @@ export enum TechSkillTypeEnum {
   OPERATION = 'operation',
 }
 
-export enum SkillIdEnum {
+export enum TechSkillIdEnum {
   PHP = 'php',
   JS = 'js',
   TS = 'ts',
@@ -42,15 +25,7 @@ export enum SkillIdEnum {
   DOCKER = 'docker',
 }
 
-export type TechSkill = {
-  skillId: SkillIdEnum;
-  skillTitle: string;
-  type: TechSkillTypeEnum;
-  level: number;
-};
-export type TechSkills = TechSkill[];
-
-export enum LanguageSkillsLevelENUM {
+export enum LanguageSkillLevelEnum {
   BEGINNER = 'beginner',
   INTERMEDIATE = 'intermediate',
   ADVANCED = 'advanced',
@@ -58,13 +33,24 @@ export enum LanguageSkillsLevelENUM {
   NATIVE = 'native',
 }
 
-export type LanguageSkill = {
-  languageTitle: string;
-  level: LanguageSkillsLevelENUM;
+export type PersonalInformation = {
+  name: string;
+  surname: string;
+  nameTH: string;
+  surnameTH: string;
+  nickname: string;
+  born: string;
+  hometown: string;
+  phone: string;
+  email: string;
+  linkedin: string;
+  github: string;
+  facebook: string;
+  mainJobTitle: string;
+  aboutMe: string;
 };
-export type LanguageSkills = LanguageSkill[];
 
-export interface WorkItem {
+export interface Work {
   jobNo: number;
   jobTitle: string;
   jobField: string;
@@ -72,22 +58,17 @@ export interface WorkItem {
   dateStart: string;
   dateEnd: string;
   descriptionList: string[];
-  tagList: string[];
+  skillList: TechSkillIdEnum[];
 }
 
-export type Work = WorkItem[];
+export type TechSkill = {
+  skillId: TechSkillIdEnum;
+  skillTitle: string;
+  type: TechSkillTypeEnum;
+  level: number;
+};
 
-export interface WorkSelectorItem {
-  jobNo: number;
-  jobField: string;
-  dateStart: string;
-  dateEnd: string;
-  isSelected: boolean;
-}
-
-export type WorkSelector = WorkSelectorItem[];
-
-export type EducationItem = {
+export type Education = {
   level: number;
   levelTitle: string;
   levelTitleTH: string;
@@ -97,17 +78,20 @@ export type EducationItem = {
   degree: string;
   yearGrad: string;
   researchTitle?: string;
-  researchFields?: Array<Record<string, unknown>>;
-  researchTools?: Array<Record<string, unknown>>;
+  researchFields?: string[];
+  researchTools?: string[];
   researchUrls?: string;
 };
 
-export type Education = EducationItem[];
+export type LanguageSkill = {
+  languageTitle: string;
+  level: LanguageSkillLevelEnum;
+};
 
 export type Data = {
   personalInformation: PersonalInformation;
-  education: Education;
-  work: Work;
-  techSkills: TechSkills;
-  languageSkills: LanguageSkills;
+  works: Work[];
+  techSkills: TechSkill[];
+  educations: Education[];
+  languageSkills: LanguageSkill[];
 };

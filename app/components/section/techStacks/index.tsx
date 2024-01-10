@@ -1,6 +1,6 @@
 'use client';
 
-import { TechSkillTypeEnum, TechSkills, Work } from '@/app/core/types/data';
+import { TechSkillTypeEnum, TechSkill, Work } from '@/app/core/types/data';
 import SkillIcon from './components/skillIcon';
 // import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -8,11 +8,11 @@ import SectionBox from '../../sectionBox';
 
 type AllSkillsByType = {
   type: TechSkillTypeEnum;
-  skills: TechSkills;
+  skills: TechSkill[];
 }[];
 
-function TechStacks({ skills, work }: { skills: TechSkills; work: Work }) {
-  const [currentWorkSkills, setCurrentWorkSkills] = useState<TechSkills>([]);
+function TechStacks({ skills, works }: { skills: TechSkill[]; works: Work[] }) {
+  const [currentWorkSkills, setCurrentWorkSkills] = useState<TechSkill[]>([]);
   const [allSkillsByType, setAllSkillsByType] = useState<AllSkillsByType>([]);
 
   useEffect(() => {
@@ -25,13 +25,13 @@ function TechStacks({ skills, work }: { skills: TechSkills; work: Work }) {
       })),
     );
 
-    const currentlyWorkTagList = work
+    const currentlyWorkSkillList = works
       .reverse()[0]
-      .tagList.map((tag) => tag.toLowerCase());
+      .skillList.map((skill) => skill.toLowerCase());
 
     setCurrentWorkSkills(() =>
       skills.filter((skill) => {
-        return currentlyWorkTagList.includes(skill.skillTitle.toLowerCase());
+        return currentlyWorkSkillList.includes(skill.skillTitle.toLowerCase());
       }),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
