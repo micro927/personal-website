@@ -1,3 +1,10 @@
+export enum JobTypeEnum {
+  FRONTEND = 'front-end developer',
+  BACKEND = 'back-end developer',
+  FULLSTACK = 'full stack developer',
+  NONE = 'non programming developer',
+}
+
 export enum TechSkillTypeEnum {
   LANGUAGE = 'language',
   FRONTEND = 'frontend',
@@ -53,7 +60,7 @@ export type PersonalInformation = {
 export interface Work {
   jobNo: number;
   jobTitle: string;
-  jobField: string;
+  jobType: JobTypeEnum;
   organization: string;
   dateStart: string;
   dateEnd: string;

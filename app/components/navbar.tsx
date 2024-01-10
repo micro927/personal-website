@@ -25,12 +25,14 @@ function Navbar({ menuList }: { menuList: MenuList }) {
             style={{
               maxWidth: CONTENT_MAX_WIDTH,
             }}
-            className="flex w-full items-center justify-end gap-10 transition-colors"
+            className="hidden w-full items-center justify-end gap-10 px-4 transition-colors sm:flex"
           >
             {menuList.map(({ title, shortTitle, link }, key) => (
               <NavLink key={key} title={shortTitle || title} link={link} />
             ))}
-            <Button className="!rounded-full !p-2">Mail me</Button>
+            <Link href="#about-me">
+              <Button className="!rounded-full">Contact me</Button>
+            </Link>
           </div>
         </div>
       </div>

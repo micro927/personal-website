@@ -1,5 +1,5 @@
 import { ContactIconEnum } from '../core/types/app';
-import { iconStyleMapping } from '../core/contactIconStyleMapping';
+import { iconStyleMapping } from '../core/presentation/contactIconStyleMapping';
 import Link from 'next/link';
 import { cx } from '@emotion/css';
 function ContactIcon({ icon, link }: { icon: ContactIconEnum; link: string }) {

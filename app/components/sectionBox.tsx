@@ -25,7 +25,7 @@ function SectionBox({
         coloredBackground && 'bg-slate-50',
       )}
     >
-      <div style={style} className="w-full px-4 py-20">
+      <div style={style} className="w-full px-10 py-9 md:px-4 md:py-20">
         {children}
       </div>
     </section>

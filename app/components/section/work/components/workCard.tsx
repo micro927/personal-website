@@ -1,21 +1,22 @@
-'use client';
-
-import { WorkItem } from '@/app/core/types/data';
+import { JobTypeEnum, Work } from '@/app/core/types/data';
 // import { AnimatePresence, motion } from 'framer-motion';
-import { SiReact } from 'react-icons/si';
 import { dateStringToMonthAndYear } from '@/app/core/function/dateStringToMonthAndYear';
+import JobAvatar from './jobAvatar';
+import { cx } from '@emotion/css';
 
-function WorkCard({ work }: { work: WorkItem }) {
+function WorkCard({ work }: { work: Work }) {
   const {
     jobTitle,
+    jobType,
     dateStart,
     dateEnd,
     organization,
+    skillList,
     // jobField,
     // skillList,
     // descriptionList,
   } = work;
-  // const isDeveloperJob = jobField === 'developer';
+  const isDeveloperJob = jobType === JobTypeEnum.NONE;
   // const [isShowDescription, setIsShowDescription] = useState(dateEnd === '');
 
   // const variants = {
@@ -32,13 +33,27 @@ function WorkCard({ work }: { work: WorkItem }) {
   return (
     <div>
       <div className="flex gap-5">
-        <div className="flex h-32 w-32 items-center justify-center rounded-xl bg-primary bg-gradient-to-tr from-primary to-accent">
-          <SiReact size={80} className="text-primary opacity-20" />
-        </div>
+        <JobAvatar jobType={jobType} mainSkillId={skillList[0]} />
         <div className="self-center">
-          <h4 className="text-2xl font-bold">{jobTitle}</h4>
-          <p className="text-lg font-semibold">{organization}</p>
-          <p className="text-gray-400">{getWorkPeriod(dateStart, dateEnd)}</p>
+          <h4
+            className={cx(
+              'text-lg font-bold md:text-2xl',
+              isDeveloperJob && 'text-gray-400',
+            )}
+          >
+            {jobTitle}
+          </h4>
+          <p
+            className={cx(
+              'text-sm font-semibold md:text-lg',
+              isDeveloperJob && 'text-gray-400',
+            )}
+          >
+            {organization}
+          </p>
+          <p className="text-xs text-gray-400 md:text-base">
+            {getWorkPeriod(dateStart, dateEnd)}
+          </p>
         </div>
       </div>
     </div>

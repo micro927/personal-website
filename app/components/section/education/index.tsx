@@ -17,12 +17,14 @@ function Education({ educations }: { educations: Education[] }) {
                 key={key}
                 className="flex items-center gap-5 border-b p-5 last:border-none"
               >
-                <FaPlus size={20} />
+                <div>
+                  <FaPlus size={20} />
+                </div>
                 <div className="gap-2">
-                  <h5 className="text-lg font-bold">
+                  <h5 className="text-base font-bold md:text-lg">
                     {levelTitle} ({yearGrad})
                   </h5>
-                  <p className="text-sm">{institute}</p>
+                  <p className="text-xs md:text-sm">{institute}</p>
                 </div>
               </div>
             );

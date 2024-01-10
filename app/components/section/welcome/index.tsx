@@ -3,7 +3,7 @@ import { PersonalInformation } from '@/app/core/types/data';
 import { useEffect, useState } from 'react';
 import ContactIcon from '../../contactIcon';
 import { ContactIconEnum, VariantEnum } from '@/app/core/types/app';
-import { additionalSubtitleList } from '@/app/core/welcomeAdditionalSubtitleList';
+import { additionalSubtitleList } from '@/app/core/presentation/welcomeAdditionalSubtitleList';
 import Button from '../../button';
 import SectionBox from '../../sectionBox';
 import Link from 'next/link';
@@ -48,29 +48,31 @@ function Welcome({
 
   return (
     <SectionBox id="welcome">
-      <div className="flex w-full flex-col justify-start">
-        <div className="w-full py-12">
+      <div className="flex h-[90vh] w-full flex-col justify-start md:h-full">
+        <div className="w-full py-12 md:py-8 ">
           <div className="group flex w-full select-none items-center justify-between">
-            <div className="flex flex-col gap-4">
+            <div className="flex w-full flex-col gap-4 text-center md:text-left">
               {/* <div className=" bg-primary to-accent from-primary bg-gradient-to-tr bg-clip-text"> */}
-              <h1 className="text-7xl font-bold">{fullName}</h1>
+              <h1 className="text-5xl font-bold  md:text-7xl">{fullName}</h1>
               {/* </div> */}
-              <h2 className="text-3xl font-semibold text-primary">
+              <h2 className=" text-xl font-semibold text-primary md:text-2xl">
                 {displaySubtitle}
               </h2>
             </div>
           </div>
 
           <div className="mt-5">
-            <div>
-              <Link href="#about-me">
+            <div className="text-center md:text-left">
+              <Link href="#work">
                 <Button variant={VariantEnum.SECONDARY} className="shadow-sm">
-                  About me
+                  About my work
                 </Button>
               </Link>
             </div>
             <div className="mt-16 w-full text-gray-500 transition duration-150 hover:text-gray-600">
-              <p className="text-justify indent-20">{aboutMe}</p>
+              <p className="text-justify indent-20 text-sm md:text-base">
+                {aboutMe}
+              </p>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ function Button(props: ButtonProps) {
       type="button"
       className={cx(
         buttonVariantMapping[variant],
-        'rounded-xl px-4 py-3 transition duration-200',
+        'rounded-xl px-4 py-3 text-sm transition duration-200',
         props.className,
       )}
     />

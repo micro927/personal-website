@@ -1,4 +1,4 @@
-import { MenuList } from '../core/types/app';
+import { MenuList } from '../types/app';
 
 export const menuList: MenuList = [
   {

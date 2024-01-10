@@ -1,5 +1,6 @@
 import {
   Data,
+  JobTypeEnum,
   LanguageSkillLevelEnum,
   TechSkillIdEnum,
   TechSkillTypeEnum,
@@ -27,7 +28,7 @@ export const data: Data = {
     {
       jobNo: 0,
       jobTitle: 'University Officer (non programming job)',
-      jobField: 'none',
+      jobType: JobTypeEnum.NONE,
       organization: 'Registration office, Chiang Mai University',
       dateStart: '2015-03-01',
       dateEnd: '2019-08-01',
@@ -37,7 +38,7 @@ export const data: Data = {
     {
       jobNo: 1,
       jobTitle: 'Full Stack Developer',
-      jobField: 'developer',
+      jobType: JobTypeEnum.FULLSTACK,
       organization: 'Registration office, Chiang Mai University',
       dateStart: '2019-09-09',
       dateEnd: '2023-03-31',
@@ -58,7 +59,7 @@ export const data: Data = {
     {
       jobNo: 2,
       jobTitle: 'Front-end Developer',
-      jobField: 'developer',
+      jobType: JobTypeEnum.FRONTEND,
       organization: '20Scoops CNX',
       dateStart: '2023-04-01',
       dateEnd: '',

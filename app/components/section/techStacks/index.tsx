@@ -1,7 +1,11 @@
 'use client';
 
-import { TechSkillTypeEnum, TechSkill, Work } from '@/app/core/types/data';
-import SkillIcon from './components/skillIcon';
+import {
+  TechSkillTypeEnum,
+  TechSkill,
+  TechSkillIdEnum,
+} from '@/app/core/types/data';
+import SkillIcon from '../../skillIcon';
 // import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import SectionBox from '../../sectionBox';
@@ -11,7 +15,13 @@ type AllSkillsByType = {
   skills: TechSkill[];
 }[];
 
-function TechStacks({ skills, works }: { skills: TechSkill[]; works: Work[] }) {
+function TechStacks({
+  skills,
+  currentWorkSkillIdList,
+}: {
+  skills: TechSkill[];
+  currentWorkSkillIdList: TechSkillIdEnum[];
+}) {
   const [currentWorkSkills, setCurrentWorkSkills] = useState<TechSkill[]>([]);
   const [allSkillsByType, setAllSkillsByType] = useState<AllSkillsByType>([]);
 
@@ -25,13 +35,9 @@ function TechStacks({ skills, works }: { skills: TechSkill[]; works: Work[] }) {
       })),
     );
 
-    const currentlyWorkSkillList = works
-      .reverse()[0]
-      .skillList.map((skill) => skill.toLowerCase());
-
     setCurrentWorkSkills(() =>
       skills.filter((skill) => {
-        return currentlyWorkSkillList.includes(skill.skillTitle.toLowerCase());
+        return currentWorkSkillIdList.includes(skill.skillId);
       }),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,7 +72,7 @@ function TechStacks({ skills, works }: { skills: TechSkill[]; works: Work[] }) {
         <h5 className="text-sm font-semibold text-gray-500">
           All Experienced skills
         </h5>
-        <div className="grid w-full grid-cols-3 gap-10">
+        <div className="grid w-full grid-cols-2 gap-10 md:grid-cols-3">
           {allSkillsByType.map(({ type, skills }, key) => (
             <div key={key} className="flex flex-col gap-10">
               <p className="text-sm font-semibold text-primary opacity-70 first-letter:uppercase">
@@ -75,8 +81,10 @@ function TechStacks({ skills, works }: { skills: TechSkill[]; works: Work[] }) {
               <div className="flex flex-col gap-4">
                 {skills.map((skill, key) => (
                   <div key={key} className="flex items-center gap-2 text-sm">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gray-800 text-white">
-                      <SkillIcon skillId={skill.skillId} size={16} />
+                    <div>
+                      <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gray-800 text-white">
+                        <SkillIcon skillId={skill.skillId} size={16} />
+                      </div>
                     </div>
                     <p className="text-sm">{skill.skillTitle}</p>
                   </div>
