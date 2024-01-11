@@ -52,16 +52,16 @@ function Welcome({
         <div className="w-full py-12 md:py-8 ">
           <div className="group flex w-full select-none items-center justify-between">
             <div className="flex w-full flex-col gap-4 text-center md:text-left">
-              {/* <div className=" bg-primary to-accent from-primary bg-gradient-to-tr bg-clip-text"> */}
-              <h1 className="text-5xl font-bold  md:text-7xl">{fullName}</h1>
-              {/* </div> */}
+              <h1 id="title" className="text-5xl font-bold md:text-7xl">
+                {fullName}
+              </h1>
               <h2 className=" text-xl font-semibold text-primary md:text-2xl">
                 {displaySubtitle}
               </h2>
             </div>
           </div>
 
-          <div className="mt-5">
+          <div id="about-me" className="mt-5">
             <div className="text-center md:text-left">
               <Link href="#work">
                 <Button variant={VariantEnum.SECONDARY} className="shadow-sm">

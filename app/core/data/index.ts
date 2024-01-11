@@ -27,7 +27,7 @@ export const data: Data = {
   works: [
     {
       jobNo: 0,
-      jobTitle: 'University Officer (non programming job)',
+      jobTitle: 'University Officer (no coding)',
       jobType: JobTypeEnum.NONE,
       organization: 'Registration office, Chiang Mai University',
       dateStart: '2015-03-01',

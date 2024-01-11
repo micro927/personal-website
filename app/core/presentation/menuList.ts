@@ -3,7 +3,7 @@ import { MenuList } from '../types/app';
 export const menuList: MenuList = [
   {
     title: 'About me',
-    link: 'about-me',
+    link: '.',
   },
   {
     title: 'Work experience',

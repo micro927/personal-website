@@ -4,7 +4,8 @@
 
 :root {
   scroll-behavior: smooth;
-  scroll-margin-bottom: 10rem;
+  /* scroll-margin: -200px; */
+  scroll-snap-type: y mandatory;
 }
 
 body {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { MenuList } from '@/app/core/types/app';
-import { CONTENT_MAX_WIDTH, NAVBAR_HEIGHT } from '../core/constant';
-import Button from './button';
+import { CONTENT_MAX_WIDTH, NAVBAR_HEIGHT } from '../../core/constant';
+import ContactMeButton from './components/contactMeButton';
 
 function NavLink({ title, link = '#' }: { title: string; link: string }) {
   return (
@@ -14,7 +14,7 @@ function NavLink({ title, link = '#' }: { title: string; link: string }) {
 function Navbar({ menuList }: { menuList: MenuList }) {
   return (
     <>
-      <div className="fixed top-0 z-50 w-full">
+      <div className="fixed top-0 z-30 w-full">
         <div
           style={{
             height: NAVBAR_HEIGHT,
@@ -30,9 +30,7 @@ function Navbar({ menuList }: { menuList: MenuList }) {
             {menuList.map(({ title, shortTitle, link }, key) => (
               <NavLink key={key} title={shortTitle || title} link={link} />
             ))}
-            <Link href="#about-me">
-              <Button className="!rounded-full">Contact me</Button>
-            </Link>
+            <ContactMeButton />
           </div>
         </div>
       </div>
