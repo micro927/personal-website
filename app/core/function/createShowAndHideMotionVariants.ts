@@ -6,14 +6,18 @@ const createShowAndHideMotionVariants = (customVariants: {
   [MotionVariantEnum.HIDDEN]?: Variant;
 }): Variants => {
   return {
-    [MotionVariantEnum.SHOW]: {
-      opacity: 1,
-      ...customVariants?.[MotionVariantEnum.SHOW],
-    },
-    [MotionVariantEnum.HIDDEN]: {
-      opacity: 0,
-      ...customVariants?.[MotionVariantEnum.HIDDEN],
-    },
+    [MotionVariantEnum.SHOW]: Object.assign(
+      {
+        opacity: 1,
+      },
+      customVariants?.[MotionVariantEnum.SHOW],
+    ),
+    [MotionVariantEnum.HIDDEN]: Object.assign(
+      {
+        opacity: 0,
+      },
+      customVariants?.[MotionVariantEnum.HIDDEN],
+    ),
   };
 };
 

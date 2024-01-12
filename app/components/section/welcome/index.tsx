@@ -35,21 +35,37 @@ function Welcome({
     });
   };
 
+  const titleVariants = createShowAndHideMotionVariants({
+    show: {
+      x: 0,
+      transition: { duration: 0.4 },
+    },
+    hidden: {
+      opacity: 0.1,
+      x: 10,
+    },
+  });
+
+  const aboutMeVariants = createShowAndHideMotionVariants({
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+    hidden: {
+      opacity: 0,
+      y: -30,
+    },
+  });
+
   const containerVariants = createShowAndHideMotionVariants({
     show: {
       transition: {
         staggerChildren: 0.2,
       },
     },
-  });
-
-  const titleItemVariants = createShowAndHideMotionVariants({
-    show: {
-      y: 0,
-      transition: { duration: 0.3 },
-    },
     hidden: {
-      y: -20,
+      opacity: 1,
     },
   });
 
@@ -79,15 +95,12 @@ function Welcome({
   return (
     <SectionBox id="welcome">
       <div className="flex h-[90vh] w-full flex-col justify-start md:h-full">
-        <motion.div
-          variants={containerVariants}
-          initial={MotionVariantEnum.HIDDEN}
-          whileInView={MotionVariantEnum.SHOW}
-          viewport={{ once: true }}
-          className="w-full py-12 md:py-8 "
-        >
+        <div className="w-full py-12 md:py-8 ">
           <motion.div
-            variants={titleItemVariants}
+            initial={MotionVariantEnum.HIDDEN}
+            whileInView={MotionVariantEnum.SHOW}
+            variants={titleVariants}
+            viewport={{ once: true }}
             className="flex w-full select-none items-center justify-between"
           >
             <div className="flex w-full flex-col gap-4 text-center md:text-left">
@@ -101,7 +114,10 @@ function Welcome({
           </motion.div>
 
           <motion.div
-            variants={titleItemVariants}
+            variants={aboutMeVariants}
+            initial={MotionVariantEnum.HIDDEN}
+            whileInView={MotionVariantEnum.SHOW}
+            viewport={{ once: true }}
             id="about-me"
             className="mt-5"
           >
@@ -118,7 +134,7 @@ function Welcome({
               </p>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
         <motion.div
           variants={containerVariants}
           initial={MotionVariantEnum.HIDDEN}
