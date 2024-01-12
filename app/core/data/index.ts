@@ -27,9 +27,10 @@ export const data: Data = {
   works: [
     {
       jobNo: 0,
-      jobTitle: 'University Officer (no coding)',
+      jobTitle: 'University officer (no coding)',
       jobType: JobTypeEnum.NONE,
       organization: 'Registration office, Chiang Mai University',
+      organizationURL: 'https://www.reg.cmu.ac.th',
       dateStart: '2015-03-01',
       dateEnd: '2019-08-01',
       descriptionList: [],
@@ -37,9 +38,10 @@ export const data: Data = {
     },
     {
       jobNo: 1,
-      jobTitle: 'Full Stack Developer',
+      jobTitle: 'Full stack Developer',
       jobType: JobTypeEnum.FULLSTACK,
       organization: 'Registration office, Chiang Mai University',
+      organizationURL: 'https://www.reg.cmu.ac.th',
       dateStart: '2019-09-09',
       dateEnd: '2023-03-31',
       descriptionList: [
@@ -60,7 +62,8 @@ export const data: Data = {
       jobNo: 2,
       jobTitle: 'Front-end Developer',
       jobType: JobTypeEnum.FRONTEND,
-      organization: '20Scoops CNX',
+      organization: '20ScoopsCNX',
+      organizationURL: 'https://20scoopscnx.com/',
       dateStart: '2023-04-01',
       dateEnd: '',
       descriptionList: [

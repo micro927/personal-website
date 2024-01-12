@@ -4,13 +4,13 @@ import { Education } from '@/app/core/types/data';
 
 function Education({ educations }: { educations: Education[] }) {
   return (
-    <SectionBox id="education">
+    <SectionBox id="education" coloredBackground>
       <div className="flex flex-col gap-10">
         <div>
           <h3 className="text-3xl font-bold">Education</h3>
         </div>
-        {/* <hr /> */}
-        <div className="flex w-full flex-col gap-2 rounded-xl bg-slate-50 px-8">
+        <div className="flex w-full flex-col gap-2 rounded-xl bg-slate-100 px-8 shadow-sm">
+          {/* bg-slate-50 for white background */}
           {educations.map(({ levelTitle, institute, yearGrad }, key) => {
             return (
               <div

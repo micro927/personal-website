@@ -14,7 +14,7 @@ import WorkModal from './components/workModal';
 function Work({ works }: { works: Work[] }) {
   const [sortedWorks, setSortedWorks] = useState<Work[]>([]);
   const { setMessage } = useContext(OnboardingMessageContext);
-  const [isOpenModal, setIsOpenModal] = useState(true);
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const [modalWork, setModalWork] = useState<Work>(works[0]);
   const { work } = onboardingMessageItem;
   const triggerRef = useRef(null);
@@ -56,9 +56,9 @@ function Work({ works }: { works: Work[] }) {
   return (
     <SectionBox id="work" coloredBackground>
       <div className="flex flex-col gap-10">
-        <motion.div>
+        <div>
           <h3 className="text-3xl font-bold">Work experience</h3>
-        </motion.div>
+        </div>
         <hr />
         <motion.div
           variants={workCardContainerVariants}

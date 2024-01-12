@@ -2,11 +2,17 @@
 import { PersonalInformation } from '@/app/core/types/data';
 import { useEffect, useState } from 'react';
 import ContactIcon from '../../contactIcon';
-import { ContactIconEnum, VariantEnum } from '@/app/core/types/app';
+import {
+  ContactIconEnum,
+  MotionVariantEnum,
+  VariantEnum,
+} from '@/app/core/types/app';
 import { additionalSubtitleList } from '@/app/core/presentation/welcomeAdditionalSubtitleList';
 import Button from '../../button';
 import SectionBox from '../../sectionBox';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import createShowAndHideMotionVariants from '@/app/core/function/createShowAndHideMotionVariants';
 
 function Welcome({
   personalInformation,
@@ -29,6 +35,34 @@ function Welcome({
     });
   };
 
+  const containerVariants = createShowAndHideMotionVariants({
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  });
+
+  const titleItemVariants = createShowAndHideMotionVariants({
+    show: {
+      y: 0,
+      transition: { duration: 0.3 },
+    },
+    hidden: {
+      y: -20,
+    },
+  });
+
+  const contactIconVariants = createShowAndHideMotionVariants({
+    show: {
+      y: 0,
+      transition: { duration: 0.3 },
+    },
+    hidden: {
+      y: 20,
+    },
+  });
+
   useEffect(() => {
     const displayInterval = setInterval(() => {
       const subtitleIndex = subtitleList.findIndex(
@@ -42,15 +76,20 @@ function Welcome({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displaySubtitle]);
 
-  // const sectionHeightStyle: CSSProperties = {
-  //   height: `calc(100vh - ${NAVBAR_HEIGHT})`,
-  // };
-
   return (
     <SectionBox id="welcome">
       <div className="flex h-[90vh] w-full flex-col justify-start md:h-full">
-        <div className="w-full py-12 md:py-8 ">
-          <div className="group flex w-full select-none items-center justify-between">
+        <motion.div
+          variants={containerVariants}
+          initial={MotionVariantEnum.HIDDEN}
+          whileInView={MotionVariantEnum.SHOW}
+          viewport={{ once: true }}
+          className="w-full py-12 md:py-8 "
+        >
+          <motion.div
+            variants={titleItemVariants}
+            className="flex w-full select-none items-center justify-between"
+          >
             <div className="flex w-full flex-col gap-4 text-center md:text-left">
               <h1 id="title" className="text-5xl font-bold md:text-7xl">
                 {fullName}
@@ -59,9 +98,13 @@ function Welcome({
                 {displaySubtitle}
               </h2>
             </div>
-          </div>
+          </motion.div>
 
-          <div id="about-me" className="mt-5">
+          <motion.div
+            variants={titleItemVariants}
+            id="about-me"
+            className="mt-5"
+          >
             <div className="text-center md:text-left">
               <Link href="#work">
                 <Button variant={VariantEnum.SECONDARY} className="shadow-sm">
@@ -74,20 +117,26 @@ function Welcome({
                 {aboutMe}
               </p>
             </div>
-          </div>
-        </div>
-        <div className="w-full">
+          </motion.div>
+        </motion.div>
+        <motion.div
+          variants={containerVariants}
+          initial={MotionVariantEnum.HIDDEN}
+          whileInView={MotionVariantEnum.SHOW}
+          className="w-full"
+        >
           <hr />
           <div className="mt-10 flex w-full justify-around">
             {Object.values(ContactIconEnum).map((contact, key) => (
-              <ContactIcon
-                key={key}
-                icon={contact}
-                link={personalInformation[contact]}
-              />
+              <motion.div key={key} variants={contactIconVariants}>
+                <ContactIcon
+                  icon={contact}
+                  link={personalInformation[contact]}
+                />
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </SectionBox>
   );

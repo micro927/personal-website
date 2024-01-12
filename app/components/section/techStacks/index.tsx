@@ -6,9 +6,12 @@ import {
   TechSkillIdEnum,
 } from '@/app/core/types/data';
 import SkillIcon from '../../skillIcon';
-// import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useContext, useEffect, useRef, useState } from 'react';
 import SectionBox from '../../sectionBox';
+import createShowAndHideMotionVariants from '@/app/core/function/createShowAndHideMotionVariants';
+import { MotionVariantEnum } from '@/app/core/types/app';
+import { OnboardingMessageContext } from '../../onboardingMessageProvider';
 
 type AllSkillsByType = {
   type: TechSkillTypeEnum;
@@ -22,8 +25,38 @@ function TechStacks({
   skills: TechSkill[];
   currentWorkSkillIdList: TechSkillIdEnum[];
 }) {
+  const { setMessage } = useContext(OnboardingMessageContext);
   const [currentWorkSkills, setCurrentWorkSkills] = useState<TechSkill[]>([]);
   const [allSkillsByType, setAllSkillsByType] = useState<AllSkillsByType>([]);
+  const triggerRef = useRef(null);
+  const isInView = useInView(triggerRef, {
+    once: true,
+  });
+
+  const currentWorkSkillContainerVariants = createShowAndHideMotionVariants({
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  });
+
+  const currentWorkSkillsVariants = createShowAndHideMotionVariants({
+    show: {
+      y: 0,
+      transition: { duration: 0.3 },
+    },
+    hidden: {
+      y: -20,
+    },
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      setMessage('');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isInView]);
 
   useEffect(() => {
     setAllSkillsByType(() =>
@@ -43,33 +76,35 @@ function TechStacks({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // <motion.div
-  //     initial={{ opacity: 0 }}
-  //     whileInView={{ opacity: 1 }}
-  //     transition={{
-  //       duration: 1,
-  //     }}
-  //     viewport={{ once: true }}
-
   return (
     <SectionBox id="tech-stacks">
       <div className="flex flex-col gap-10">
         <h3 className="text-3xl font-bold">Tech stacks</h3>
         <hr />
         <h5 className="text-sm font-semibold text-gray-500">Current work</h5>
-        <div className="flex w-full flex-col gap-2">
+
+        <motion.div
+          variants={currentWorkSkillContainerVariants}
+          initial={MotionVariantEnum.HIDDEN}
+          whileInView={MotionVariantEnum.SHOW}
+          viewport={{ once: true }}
+          className="flex w-full flex-col gap-2"
+        >
           {currentWorkSkills.map((skill, key) => (
-            <div key={key} className="flex items-center gap-5">
+            <motion.div
+              key={key}
+              variants={currentWorkSkillsVariants}
+              className="flex items-center gap-5"
+            >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-800 text-white">
                 <SkillIcon skillId={skill.skillId} size={24} />
               </div>
-              <p className="text-lg">{skill.skillTitle}</p>
-            </div>
+              <p className="text-base md:text-lg">{skill.skillTitle}</p>
+            </motion.div>
           ))}
-        </div>
-
+        </motion.div>
         <hr />
-        <h5 className="text-sm font-semibold text-gray-500">
+        <h5 className="text-sm font-semibold text-gray-500" ref={triggerRef}>
           All Experienced skills
         </h5>
         <div className="grid w-full grid-cols-2 gap-10 md:grid-cols-3">
@@ -86,7 +121,7 @@ function TechStacks({
                         <SkillIcon skillId={skill.skillId} size={16} />
                       </div>
                     </div>
-                    <p className="text-sm">{skill.skillTitle}</p>
+                    <p className="text-xs sm:text-sm">{skill.skillTitle}</p>
                   </div>
                 ))}
               </div>

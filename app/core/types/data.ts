@@ -62,6 +62,7 @@ export interface Work {
   jobTitle: string;
   jobType: JobTypeEnum;
   organization: string;
+  organizationURL: string;
   dateStart: string;
   dateEnd: string;
   descriptionList: string[];

@@ -16,7 +16,7 @@ function OnboardingDisplay({ className }: { className?: string }) {
   };
 
   useEffect(() => {
-    if (message !== '') setIsShowMessage(true);
+    setIsShowMessage(message !== '');
 
     const closeTimeout = setTimeout(() => {
       closeMessage();
@@ -43,11 +43,19 @@ function OnboardingDisplay({ className }: { className?: string }) {
             'fixed bottom-10 flex w-full justify-center px-10 lg:justify-end',
           )}
         >
-          <div className="flex w-fit items-center gap-3 rounded-3xl bg-white bg-opacity-95 px-7 py-5 text-gray-500 drop-shadow-xl lg:bg-opacity-80">
-            <MdOutlineTipsAndUpdates size={24} /> {message}
-            <button onClick={closeMessage} className="p-2">
-              <MdOutlineClose size={16} />
-            </button>
+          <div className="flex w-fit items-center gap-3 rounded-3xl bg-white bg-opacity-100 px-7 py-5 text-gray-600 drop-shadow-xl lg:bg-opacity-80">
+            <div>
+              <MdOutlineTipsAndUpdates
+                size={24}
+                className="h-5 w-5 md:h-6 md:w-6"
+              />
+            </div>
+            <p className="text-sm md:text-base">{message}</p>
+            <div>
+              <button onClick={closeMessage} className="p-1 md:p-2">
+                <MdOutlineClose size={16} />
+              </button>
+            </div>
           </div>
         </motion.div>
       )}

@@ -29,10 +29,11 @@ export const dateStringPeriodToDurationObject = (
   dateStart: string,
   dateEnd: string,
 ) => {
-  const monthsCount = getDifferenceMonth(
-    new Date(dateStart),
-    dateEnd === '' ? new Date() : new Date(dateEnd),
-  );
+  const monthsCount =
+    getDifferenceMonth(
+      new Date(dateStart),
+      dateEnd === '' ? new Date() : new Date(dateEnd),
+    ) + 1; // NOTE: include current month
 
   const year = Math.floor(monthsCount / 12);
   const month = monthsCount % 12;

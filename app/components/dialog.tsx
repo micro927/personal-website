@@ -3,6 +3,7 @@
 import { ReactNode, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { cx } from '@emotion/css';
+import { CONTENT_MAX_WIDTH } from '../core/constant';
 function Dialog({
   children,
   isOpen,
@@ -39,24 +40,27 @@ function Dialog({
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, transition: { duration: 0.2 } }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 h-screen w-screen overflow-hidden bg-gray-600 bg-opacity-80 backdrop-blur-sm"
+              exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              className="fixed inset-0 z-40 h-screen w-screen overflow-hidden bg-gray-600 bg-opacity-50 backdrop-blur-sm"
+              onClick={onClose}
+            ></motion.div>
+            <motion.dialog
+              style={{ maxWidth: CONTENT_MAX_WIDTH }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                transition: {
+                  type: 'spring',
+                  duration: 0.4,
+                },
+              }}
+              exit={{ opacity: 0, y: 10, transition: { duration: 0.2 } }}
+              className={cx(className, 'fixed z-50 overflow-scroll shadow-xl')}
+              open
             >
-              <motion.dialog
-                initial={{ opacity: 0, y: -20, x: '-50%' }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  x: '-50%',
-                  transition: { type: 'spring' },
-                }}
-                exit={{ opacity: 0 }}
-                className={cx(className, 'fixed inset-1/2 z-50')}
-                open
-              >
-                {children}
-              </motion.dialog>
-            </motion.div>
+              {children}
+            </motion.dialog>
           </>
         )}
       </AnimatePresence>

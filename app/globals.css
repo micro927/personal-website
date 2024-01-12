@@ -8,7 +8,8 @@
   scroll-snap-type: y mandatory;
 }
 
-body {
+body,
+dialog {
   @apply text-base font-medium  text-gray-600;
 }
 

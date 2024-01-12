@@ -14,7 +14,7 @@ function NavLink({ title, link = '#' }: { title: string; link: string }) {
 function Navbar({ menuList }: { menuList: MenuList }) {
   return (
     <>
-      <div className="fixed top-0 z-30 w-full">
+      <div className="fixed top-0 z-30 hidden w-full sm:block">
         <div
           style={{
             height: NAVBAR_HEIGHT,
@@ -25,7 +25,7 @@ function Navbar({ menuList }: { menuList: MenuList }) {
             style={{
               maxWidth: CONTENT_MAX_WIDTH,
             }}
-            className="hidden w-full items-center justify-end gap-10 px-4 transition-colors sm:flex"
+            className="flex w-full items-center justify-end gap-10 px-4 transition-colors"
           >
             {menuList.map(({ title, shortTitle, link }, key) => (
               <NavLink key={key} title={shortTitle || title} link={link} />
@@ -34,7 +34,7 @@ function Navbar({ menuList }: { menuList: MenuList }) {
           </div>
         </div>
       </div>
-      <div style={{ height: NAVBAR_HEIGHT }} />
+      <div className="hidden sm:block" style={{ height: NAVBAR_HEIGHT }} />
     </>
   );
 }

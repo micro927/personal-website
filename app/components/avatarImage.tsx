@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+// NOTE: backup
 function AvatarImage() {
   return (
     <div className="relative h-48 w-48 ">
@@ -17,5 +18,4 @@ function AvatarImage() {
     </div>
   );
 }
-// NOTE: backup
 export default AvatarImage;

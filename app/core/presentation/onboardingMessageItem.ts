@@ -1,4 +1,4 @@
 export const onboardingMessageItem = {
-  contact: 'Check out all of my contact by click at these icons.',
-  work: 'Click at each job to see my work detail.',
+  contact: 'Click the platform icons to contact me!',
+  work: 'Click the job title to discover more about my experience!',
 };
