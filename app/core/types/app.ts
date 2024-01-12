@@ -1,11 +1,10 @@
 import { ComponentProps } from 'react';
 import type { IconType } from 'react-icons';
 
-export type MenuList = {
-  title: string;
-  shortTitle?: string;
-  link: string;
-}[];
+export enum MotionVariantEnum {
+  SHOW = 'show',
+  HIDDEN = 'hidden',
+}
 
 export enum ContactIconEnum {
   GITHUB = 'github',
@@ -13,6 +12,25 @@ export enum ContactIconEnum {
   EMAIL = 'email',
   FACEBOOK = 'facebook',
 }
+
+export enum VariantEnum {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  ACCENT = 'accent',
+  DARK = 'dark',
+}
+
+export type SetState<T> = (callback: ((prev: T) => T) | T) => void;
+
+export type ButtonProps = {
+  variant?: VariantEnum;
+} & ComponentProps<'button'>;
+
+export type MenuList = {
+  title: string;
+  shortTitle?: string;
+  link: string;
+}[];
 
 export type ContactIconStyleMapping = Record<
   ContactIconEnum,
@@ -22,13 +40,7 @@ export type ContactIconStyleMapping = Record<
   }
 >;
 
-export enum VariantEnum {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-  ACCENT = 'accent',
-  DARK = 'dark',
-}
-
-export type ButtonProps = {
-  variant?: VariantEnum;
-} & ComponentProps<'button'>;
+export type OnboardingMessageContextType = {
+  message: string;
+  setMessage: SetState<string>;
+};
