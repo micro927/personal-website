@@ -38,7 +38,7 @@ function WorkModal({
     <Dialog
       isOpen={isOpen}
       onClose={onClose}
-      className="top-5 flex h-fit max-h-[90%] w-[90%]  flex-col rounded-xl md:w-full"
+      className="top-5 flex h-full max-h-[90%] w-[90%]  flex-col rounded-xl md:w-full"
     >
       <div className="h-32 overflow-hidden md:h-36">
         <JobTypeGradientBox

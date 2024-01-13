@@ -1,6 +1,6 @@
 'use client';
 import { PersonalInformation } from '@/app/core/types/data';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ContactIcon from '../../contactIcon';
 import {
   ContactIconEnum,
@@ -13,6 +13,8 @@ import SectionBox from '../../sectionBox';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import createShowAndHideMotionVariants from '@/app/core/function/createShowAndHideMotionVariants';
+import { OnboardingMessageContext } from '../../onboardingMessageProvider';
+import { onboardingMessageItem } from '@/app/core/presentation/onboardingMessageItem';
 
 function Welcome({
   personalInformation,
@@ -22,8 +24,11 @@ function Welcome({
   const { name, surname, mainJobTitle, nickname, aboutMe } =
     personalInformation;
   const fullName = `${name} ${surname}`;
+
   const subtitleList = [mainJobTitle, ...additionalSubtitleList, nickname];
   const [displaySubtitle, setDisplaySubtitle] = useState(mainJobTitle);
+  const { setMessage } = useContext(OnboardingMessageContext);
+  const { work } = onboardingMessageItem;
 
   const changeDisplaySubtitleWithTypingAnimation = (newDisplayName: string) => {
     setDisplaySubtitle('');
@@ -34,6 +39,8 @@ function Welcome({
       );
     });
   };
+
+  const onClickToWorkButton = () => setMessage(work);
 
   const titleVariants = createShowAndHideMotionVariants({
     show: {
@@ -123,7 +130,11 @@ function Welcome({
           >
             <div className="text-center md:text-left">
               <Link href="#work">
-                <Button variant={VariantEnum.SECONDARY} className="shadow-sm">
+                <Button
+                  variant={VariantEnum.SECONDARY}
+                  onClick={onClickToWorkButton}
+                  className="shadow-sm"
+                >
                   About my work
                 </Button>
               </Link>

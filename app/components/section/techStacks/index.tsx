@@ -29,9 +29,7 @@ function TechStacks({
   const [currentWorkSkills, setCurrentWorkSkills] = useState<TechSkill[]>([]);
   const [allSkillsByType, setAllSkillsByType] = useState<AllSkillsByType>([]);
   const triggerRef = useRef(null);
-  const isInView = useInView(triggerRef, {
-    once: true,
-  });
+  const isInView = useInView(triggerRef);
 
   const currentWorkSkillContainerVariants = createShowAndHideMotionVariants({
     show: {
