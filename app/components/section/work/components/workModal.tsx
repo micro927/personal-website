@@ -1,7 +1,7 @@
 'use client';
 
 import Dialog from '@/app/components/dialog';
-import { Work } from '@/app/core/types/data';
+import { TechSkill, Work } from '@/app/core/types/data';
 import JobTypeGradientBox from './jobTypeGradientBox';
 import SkillIcon from '@/app/components/skillIcon';
 import { MdOutlineClose } from 'react-icons/md';
@@ -12,10 +12,12 @@ import {
 
 function WorkModal({
   work,
+  techSkills,
   isOpen,
   onClose,
 }: {
   work: Work;
+  techSkills: TechSkill[];
   isOpen: boolean;
   onClose: () => void;
 }) {
@@ -81,12 +83,12 @@ function WorkModal({
           <div className="flex basis-4/12 flex-col gap-6">
             <h6 className="text-base font-bold md:text-lg">Tech stacks</h6>
             <div className="flex flex-col gap-2">
-              {skillList.map((skillId, key) => (
+              {techSkills.map(({ skillTitle, skillId }, key) => (
                 <div key={key} className="flex items-center gap-6">
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gray-800 text-white">
                     <SkillIcon skillId={skillId} size={16} />
                   </div>
-                  <p className="text-sm">{skillId}</p>
+                  <p className="text-sm">{skillTitle}</p>
                 </div>
               ))}
             </div>

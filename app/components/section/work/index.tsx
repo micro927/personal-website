@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useInView, motion } from 'framer-motion';
-import { Work } from '@/app/core/types/data';
+import { TechSkill, Work } from '@/app/core/types/data';
 import { onboardingMessageItem } from '@/app/core/presentation/onboardingMessageItem';
 import WorkCard from './components/workCard';
 import SectionBox from '../../sectionBox';
@@ -11,18 +11,33 @@ import { MotionVariantEnum } from '@/app/core/types/app';
 import createShowAndHideMotionVariants from '@/app/core/function/createShowAndHideMotionVariants';
 import WorkModal from './components/workModal';
 
-function Work({ works }: { works: Work[] }) {
+function Work({
+  works,
+  techSkills,
+}: {
+  works: Work[];
+  techSkills: TechSkill[];
+}) {
   const [sortedWorks, setSortedWorks] = useState<Work[]>([]);
   const { setMessage } = useContext(OnboardingMessageContext);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [modalWork, setModalWork] = useState<Work>(works[0]);
+  const [modalWorkTechSkills, setModalWorkTechSkills] = useState<TechSkill[]>(
+    [],
+  );
   const { work } = onboardingMessageItem;
   const triggerRef = useRef(null);
   const isInView = useInView(triggerRef, {
     once: true,
+    margin: '-200px',
   });
   const openModal = (work: Work) => {
     setModalWork(work);
+    setModalWorkTechSkills(() =>
+      techSkills.filter((techSkill) =>
+        work.skillList.includes(techSkill.skillId),
+      ),
+    );
     setIsOpenModal(true);
   };
   const closeModal = () => setIsOpenModal(false);
@@ -66,6 +81,7 @@ function Work({ works }: { works: Work[] }) {
           whileInView={MotionVariantEnum.SHOW}
           viewport={{ once: true }}
           className="flex w-full flex-col gap-6"
+          ref={triggerRef}
         >
           {sortedWorks.map((work, key) => (
             <motion.div key={key} variants={workCardVariants}>
@@ -73,8 +89,12 @@ function Work({ works }: { works: Work[] }) {
             </motion.div>
           ))}
         </motion.div>
-        <div ref={triggerRef} />
-        <WorkModal work={modalWork} isOpen={isOpenModal} onClose={closeModal} />
+        <WorkModal
+          work={modalWork}
+          techSkills={modalWorkTechSkills}
+          isOpen={isOpenModal}
+          onClose={closeModal}
+        />
       </div>
     </SectionBox>
   );

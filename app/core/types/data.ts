@@ -30,6 +30,7 @@ export enum TechSkillIdEnum {
   JQUERY = 'jquery',
   MYSQL = 'mysql',
   DOCKER = 'docker',
+  RXJS = 'rxjs',
 }
 
 export enum LanguageSkillLevelEnum {

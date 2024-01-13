@@ -22,7 +22,7 @@ export default async function Home() {
         </header>
         <main className="flex w-full flex-col">
           <Welcome personalInformation={personalInformation} />
-          <Work works={works} />
+          <Work works={works} techSkills={techSkills} />
 
           <TechStacks
             skills={techSkills}

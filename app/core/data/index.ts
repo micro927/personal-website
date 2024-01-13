@@ -75,6 +75,7 @@ export const data: Data = {
         TechSkillIdEnum.REACTJS,
         TechSkillIdEnum.TS,
         TechSkillIdEnum.TAILWIND,
+        TechSkillIdEnum.RXJS,
         TechSkillIdEnum.GITHUB_ACTIONS,
       ],
     },
@@ -166,6 +167,12 @@ export const data: Data = {
       skillTitle: 'TailwindCSS',
       type: TechSkillTypeEnum.FRONTEND,
       level: 7,
+    },
+    {
+      skillId: TechSkillIdEnum.RXJS,
+      skillTitle: 'RxJS',
+      type: TechSkillTypeEnum.FRONTEND,
+      level: 6,
     },
     {
       skillId: TechSkillIdEnum.BOOTSTRAP,

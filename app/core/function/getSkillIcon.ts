@@ -16,6 +16,7 @@ import {
   SiGithubactions,
   SiTypescript,
   SiTailwindcss,
+  SiReactivex,
 } from 'react-icons/si';
 import { TechSkillIdEnum } from '../types/data';
 
@@ -37,6 +38,7 @@ export function getSkillIcon(skillId: TechSkillIdEnum) {
     [TechSkillIdEnum.JQUERY]: SiJquery,
     [TechSkillIdEnum.MYSQL]: SiMysql,
     [TechSkillIdEnum.DOCKER]: SiDocker,
+    [TechSkillIdEnum.RXJS]: SiReactivex,
   };
   return skillIconMapping?.[skillId] ?? undefined;
 }
