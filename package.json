@@ -20,6 +20,9 @@
   },
   "dependencies": {
     "@emotion/css": "^11.11.2",
+    "embla-carousel": "^8.0.0",
+    "embla-carousel-autoplay": "^8.0.0",
+    "embla-carousel-react": "^8.0.0",
     "framer-motion": "^10.16.16",
     "next": "14.0.4",
     "react": "^18",
