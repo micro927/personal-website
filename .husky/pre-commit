@@ -1,13 +1,10 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# Use nvm to switch to a specific Node version
 export NVM_DIR="$HOME/.nvm"
 . "$NVM_DIR/nvm.sh"
 
-# Specify the Node version you want to use
 nvm use 20
-
 pnpm lint
 pnpm lint-staged
 pnpm prettier:check
