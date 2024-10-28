@@ -2,7 +2,7 @@
 
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useInView, motion } from 'framer-motion';
-import { TechSkill, Work } from '@/app/core/types/data';
+import { TechSkill, type Work } from '@/app/core/types/data';
 import { onboardingMessageItem } from '@/app/core/presentation/onboardingMessageItem';
 import WorkCard from './components/workCard';
 import SectionBox from '../../sectionBox';

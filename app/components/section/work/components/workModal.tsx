@@ -2,7 +2,7 @@
 
 import Dialog from '@/app/components/dialog';
 import { TechSkill, Work } from '@/app/core/types/data';
-import JobTypeGradientBox from './jobTypeGradientBox';
+import JobGradientBox from './jobGradientBox';
 import SkillIcon from '@/app/components/skillIcon';
 import { MdOutlineClose } from 'react-icons/md';
 import {
@@ -23,7 +23,6 @@ function WorkModal({
 }) {
   const {
     jobTitle,
-    jobType,
     skillList,
     organization,
     descriptionList,
@@ -41,8 +40,8 @@ function WorkModal({
       className="top-5 flex h-full max-h-[90%] w-[90%]  flex-col rounded-xl md:w-full"
     >
       <div className="h-32 overflow-hidden md:h-36">
-        <JobTypeGradientBox
-          jobType={jobType}
+        <JobGradientBox
+          work={work}
           className="w-ful flex h-full items-center justify-between text-opacity-50"
         >
           <SkillIcon
@@ -55,7 +54,7 @@ function WorkModal({
           >
             <MdOutlineClose className="h-3 w-3 md:h-5 md:w-5" />
           </button>
-        </JobTypeGradientBox>
+        </JobGradientBox>
       </div>
       <div className="flex flex-1 flex-col gap-10 overflow-scroll p-12">
         <div className="flex flex-col gap-2">

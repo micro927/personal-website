@@ -1,4 +1,13 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx --no -- commitlint --edit ${1}
+# Use nvm to switch to a specific Node version
+export NVM_DIR="$HOME/.nvm"
+. "$NVM_DIR/nvm.sh"
+
+# Specify the Node version you want to use
+nvm use 20
+
+pnpm commitlint ${1}
+
+# npx --no -- commitlint --edit ${1}

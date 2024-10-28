@@ -30,7 +30,7 @@ function WorkCard({
             'transition duration-300 ease-out group-hover:scale-[1.03]',
         )}
       >
-        <JobAvatar jobType={jobType} mainSkillId={skillList[0]} />
+        <JobAvatar work={work} mainSkillId={skillList[0]} />
       </div>
       <div
         className={cx(

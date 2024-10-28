@@ -31,6 +31,8 @@ export enum TechSkillIdEnum {
   MYSQL = 'mysql',
   DOCKER = 'docker',
   RXJS = 'rxjs',
+  REDUX = 'redux',
+  WEBSOCKET = 'websocket',
 }
 
 export enum LanguageSkillLevelEnum {

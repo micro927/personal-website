@@ -1,20 +1,20 @@
 'use client';
 
 import SkillIcon from '@/app/components/skillIcon';
-import { JobTypeEnum, TechSkillIdEnum } from '@/app/core/types/data';
-import JobTypeGradientBox from './jobTypeGradientBox';
+import { TechSkillIdEnum, type Work } from '@/app/core/types/data';
+import JobGradientBox from './jobGradientBox';
 
 function JobAvatar({
-  jobType,
+  work,
   mainSkillId,
 }: {
-  jobType: JobTypeEnum;
+  work: Work;
   mainSkillId?: TechSkillIdEnum;
 }) {
   return (
     <div>
-      <JobTypeGradientBox
-        jobType={jobType}
+      <JobGradientBox
+        work={work}
         className="flex h-24 w-24 items-center justify-center rounded-xl md:h-32 md:w-32"
       >
         {mainSkillId && (
@@ -23,7 +23,7 @@ function JobAvatar({
             className="h-14 w-14 opacity-20 md:h-20 md:w-20"
           />
         )}
-      </JobTypeGradientBox>
+      </JobGradientBox>
     </div>
   );
 }

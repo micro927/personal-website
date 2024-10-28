@@ -65,7 +65,7 @@ export const data: Data = {
       organization: '20ScoopsCNX',
       organizationURL: 'https://20scoopscnx.com/',
       dateStart: '2023-04-01',
-      dateEnd: '',
+      dateEnd: '2024-06-30',
       descriptionList: [
         'Proficient in building performant web application using React.js and TypeScript',
         'Translating design concepts from Figma into responsive user interfaces',
@@ -77,6 +77,26 @@ export const data: Data = {
         TechSkillIdEnum.TAILWIND,
         TechSkillIdEnum.RXJS,
         TechSkillIdEnum.GITHUB_ACTIONS,
+      ],
+    },
+    {
+      jobNo: 3,
+      jobTitle: 'Front-end Developer',
+      jobType: JobTypeEnum.FRONTEND,
+      organization: 'EveryMatrix',
+      organizationURL: 'https://everymatrix.com/',
+      dateStart: '2024-07-01',
+      dateEnd: '',
+      descriptionList: [
+        'Responsible for the maintenance and management of the front-end part of a high-traffic E-gaming website i',
+        'Integrated multiple services into the main website, working with WebSocket, RestAPI and custom-built web components.',
+      ],
+      skillList: [
+        TechSkillIdEnum.REACTJS,
+        TechSkillIdEnum.JS,
+        TechSkillIdEnum.CSS,
+        TechSkillIdEnum.REDUX,
+        TechSkillIdEnum.WEBSOCKET,
       ],
     },
   ],
@@ -118,7 +138,7 @@ export const data: Data = {
       skillId: TechSkillIdEnum.JS,
       skillTitle: 'JavaScript',
       type: TechSkillTypeEnum.LANGUAGE,
-      level: 7,
+      level: 8,
     },
     {
       skillId: TechSkillIdEnum.TS,
@@ -130,13 +150,13 @@ export const data: Data = {
       skillId: TechSkillIdEnum.HTML,
       skillTitle: 'HTML',
       type: TechSkillTypeEnum.LANGUAGE,
-      level: 6,
+      level: 7,
     },
     {
       skillId: TechSkillIdEnum.CSS,
       skillTitle: 'CSS',
       type: TechSkillTypeEnum.LANGUAGE,
-      level: 5,
+      level: 7,
     },
     {
       skillId: TechSkillIdEnum.PYTHON,
@@ -157,6 +177,12 @@ export const data: Data = {
       level: 6,
     },
     {
+      skillId: TechSkillIdEnum.WEBSOCKET,
+      skillTitle: 'WebSocket',
+      type: TechSkillTypeEnum.BACKEND,
+      level: 6,
+    },
+    {
       skillId: TechSkillIdEnum.REACTJS,
       skillTitle: 'React.js',
       type: TechSkillTypeEnum.FRONTEND,
@@ -173,6 +199,12 @@ export const data: Data = {
       skillTitle: 'RxJS',
       type: TechSkillTypeEnum.FRONTEND,
       level: 6,
+    },
+    {
+      skillId: TechSkillIdEnum.REDUX,
+      skillTitle: 'Redux',
+      type: TechSkillTypeEnum.FRONTEND,
+      level: 5,
     },
     {
       skillId: TechSkillIdEnum.BOOTSTRAP,
