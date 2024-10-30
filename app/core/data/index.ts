@@ -88,7 +88,7 @@ export const data: Data = {
       dateStart: '2024-07-01',
       dateEnd: '',
       descriptionList: [
-        'Responsible for the maintenance and management of the front-end part of a high-traffic E-gaming website i',
+        'Responsible for the maintenance and management of the front-end part of a high-traffic E-gaming website',
         'Integrated multiple services into the main website, working with WebSocket, RestAPI and custom-built web components.',
       ],
       skillList: [
