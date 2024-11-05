@@ -67,9 +67,12 @@ function TechStacks({
     );
 
     setCurrentWorkSkills(() =>
-      skills.filter((skill) => {
-        return currentWorkSkillIdList.includes(skill.skillId);
-      }),
+      currentWorkSkillIdList.map(
+        (techSkillId) =>
+          skills.findLast(
+            (techSkill) => techSkill.skillId === techSkillId,
+          ) as TechSkill,
+      ),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

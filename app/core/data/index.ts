@@ -22,7 +22,7 @@ export const data: Data = {
     facebook: 'facebook.com/nsBelieve',
     mainJobTitle: 'Software developer',
     aboutMe:
-      "I'm Software developer with experience in Front-end developer for software company, and 3+ years of experience in Full stack developer for Thailand public university. Focusing on user experience on client-side and performance on server-side. Fully believe that technology will make the people's life better and easier. Still passionate in learning new useful skills, frameworks and tools for improve development efficiency and productivity.",
+      "I'm Software developer with 2+ years experience in Front-end developer for software company, and 3+ years of experience in Full stack developer for Thailand public university. Focusing on user experience on client-side and performance on server-side. Fully believe that technology will make the people's life better and easier. Still passionate in learning new useful skills, frameworks and tools for improve development efficiency and productivity.",
   },
   works: [
     {
