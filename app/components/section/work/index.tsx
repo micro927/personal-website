@@ -33,11 +33,14 @@ function Work({
   });
   const openModal = (work: Work) => {
     setModalWork(work);
-    setModalWorkTechSkills(() =>
-      techSkills.filter((techSkill) =>
-        work.skillList.includes(techSkill.skillId),
-      ),
-    );
+    setModalWorkTechSkills(() => {
+      return work.skillList.map(
+        (techSkillId) =>
+          techSkills.findLast(
+            (techSkill) => techSkill.skillId === techSkillId,
+          ) as TechSkill,
+      );
+    });
     setIsOpenModal(true);
   };
   const closeModal = () => setIsOpenModal(false);

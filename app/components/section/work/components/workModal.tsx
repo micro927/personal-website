@@ -25,6 +25,8 @@ function WorkModal({
     jobTitle,
     skillList,
     organization,
+    city,
+    country,
     descriptionList,
     dateStart,
     dateEnd,
@@ -61,6 +63,9 @@ function WorkModal({
           <div className="flex flex-col gap-1">
             <h4 className="text-xl font-bold md:text-2xl">{jobTitle}</h4>
             <p className="text-base font-bold md:text-lg">{organization}</p>
+            <p className="text-sm font-semibold md:text-base">
+              {city}, {country}
+            </p>
           </div>
           <p className="text-sm font-semibold md:text-base">
             {workPeriod} ({duration})

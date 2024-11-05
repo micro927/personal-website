@@ -66,6 +66,8 @@ export interface Work {
   jobType: JobTypeEnum;
   organization: string;
   organizationURL: string;
+  city: string;
+  country: string;
   dateStart: string;
   dateEnd: string;
   descriptionList: string[];

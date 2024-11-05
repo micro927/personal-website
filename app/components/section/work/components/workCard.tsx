@@ -10,8 +10,15 @@ function WorkCard({
   work: Work;
   onClickOpenModal?: (work: Work) => void;
 }) {
-  const { jobTitle, jobType, dateStart, dateEnd, organization, skillList } =
-    work;
+  const {
+    jobTitle,
+    jobType,
+    dateStart,
+    dateEnd,
+    organization,
+    country,
+    skillList,
+  } = work;
   const isDeveloperJob = jobType !== JobTypeEnum.NONE;
   const workPeriod = dateStringPeriodToMonthAndYearPeriod(dateStart, dateEnd);
   const openModal = () => isDeveloperJob && onClickOpenModal?.(work);
@@ -48,6 +55,7 @@ function WorkCard({
             {jobTitle}
           </h4>
           <p className="text-sm md:text-lg">{organization}</p>
+          <p className="text-xs md:text-sm">{country}</p>
         </div>
         <p className="text-xs md:text-sm">{workPeriod}</p>
       </div>
