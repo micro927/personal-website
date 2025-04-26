@@ -208,7 +208,7 @@ export const data: Data = {
       skillId: TechSkillIdEnum.ANGULARJS,
       skillTitle: 'Angular.js',
       type: TechSkillTypeEnum.FRONTEND,
-      level: 6,
+      level: 4,
     },
     {
       skillId: TechSkillIdEnum.RXJS,
