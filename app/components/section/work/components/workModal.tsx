@@ -25,6 +25,7 @@ function WorkModal({
     jobTitle,
     skillList,
     organization,
+    organizationURL,
     city,
     country,
     descriptionList,
@@ -62,7 +63,13 @@ function WorkModal({
         <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-1">
             <h4 className="text-xl font-bold md:text-2xl">{jobTitle}</h4>
-            <p className="text-base font-bold md:text-lg">{organization}</p>
+            <a
+              href={organizationURL}
+              target="_blank"
+              className="text-base font-bold md:text-lg"
+            >
+              {organization}
+            </a>
             <p className="text-sm font-semibold md:text-base">
               {city}, {country}
             </p>

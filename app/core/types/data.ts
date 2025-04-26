@@ -26,6 +26,7 @@ export enum TechSkillIdEnum {
   EXPRESSJS = 'expressjs',
   REACTJS = 'reactjs',
   VUEJS = 'vuejs',
+  ANGULARJS = 'angularjs',
   BOOTSTRAP = 'bootstrap',
   JQUERY = 'jquery',
   MYSQL = 'mysql',

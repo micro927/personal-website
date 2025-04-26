@@ -60,7 +60,7 @@ function Welcome({
       transition: { duration: 0.5 },
     },
     hidden: {
-      opacity: 0,
+      opacity: 0.1,
       y: -30,
     },
   });
@@ -101,7 +101,7 @@ function Welcome({
 
   return (
     <SectionBox id="welcome">
-      <div className="flex h-[90vh] w-full flex-col justify-start md:h-full">
+      <div className="flex min-h-[70vh] w-full flex-col justify-start md:h-full md:min-h-max">
         <div className="w-full py-12 md:py-8 ">
           <motion.div
             initial={MotionVariantEnum.HIDDEN}

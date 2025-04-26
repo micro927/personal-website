@@ -19,6 +19,7 @@ import {
   SiReactivex,
   SiSocketdotio,
   SiRedux,
+  SiAngularjs,
 } from 'react-icons/si';
 import { TechSkillIdEnum } from '../types/data';
 
@@ -36,6 +37,7 @@ export function getSkillIcon(skillId: TechSkillIdEnum) {
     [TechSkillIdEnum.EXPRESSJS]: SiExpress,
     [TechSkillIdEnum.REACTJS]: SiReact,
     [TechSkillIdEnum.VUEJS]: SiVuedotjs,
+    [TechSkillIdEnum.ANGULARJS]: SiAngularjs,
     [TechSkillIdEnum.BOOTSTRAP]: SiBootstrap,
     [TechSkillIdEnum.JQUERY]: SiJquery,
     [TechSkillIdEnum.MYSQL]: SiMysql,

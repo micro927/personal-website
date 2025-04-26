@@ -22,12 +22,12 @@ export const data: Data = {
     facebook: 'facebook.com/nsBelieve',
     mainJobTitle: 'Software developer',
     aboutMe:
-      "I'm Software developer with 2+ years experience in Front-end developer for software company, and 3+ years of experience in Full stack developer for Thailand public university. Focusing on user experience on client-side and performance on server-side. Fully believe that technology will make the people's life better and easier. Still passionate in learning new useful skills, frameworks and tools for improve development efficiency and productivity.",
+      "I'm a Software Developer with solid experience in Front-end and Full-stack web development. I focus on crafting seamless user experiences and optimizing server-side performance. I believe technology should simplify life, and I’m passionate about learning new tools to boost development efficiency and productivity.",
   },
   works: [
     {
       jobNo: 0,
-      jobTitle: 'University officer (no coding)',
+      jobTitle: 'Officer (no coding)',
       jobType: JobTypeEnum.NONE,
       organization: 'Chiang Mai University',
       organizationURL: 'https://www.reg.cmu.ac.th',
@@ -96,13 +96,15 @@ export const data: Data = {
       dateStart: '2024-07-01',
       dateEnd: '',
       descriptionList: [
-        'Responsible for the maintenance and management of the front-end part of a high-traffic E-gaming website',
-        'Integrated multiple services into the main website, working with WebSocket, RestAPI and custom-built web components.',
+        'Maintained and managed the front-end of a high-traffic e-gaming website built with React.js and AngularJS.',
+        'Integrated multiple services into the main platform, working with WebSocket, REST APIs, and custom web components.',
+        'Implemented new front-end features and debugged issues across various integrated services.',
       ],
       skillList: [
         TechSkillIdEnum.REACTJS,
         TechSkillIdEnum.JS,
         TechSkillIdEnum.CSS,
+        TechSkillIdEnum.ANGULARJS,
         TechSkillIdEnum.REDUX,
         TechSkillIdEnum.WEBSOCKET,
       ],
@@ -203,8 +205,20 @@ export const data: Data = {
       level: 7,
     },
     {
+      skillId: TechSkillIdEnum.ANGULARJS,
+      skillTitle: 'Angular.js',
+      type: TechSkillTypeEnum.FRONTEND,
+      level: 6,
+    },
+    {
       skillId: TechSkillIdEnum.RXJS,
       skillTitle: 'RxJS',
+      type: TechSkillTypeEnum.FRONTEND,
+      level: 6,
+    },
+    {
+      skillId: TechSkillIdEnum.BOOTSTRAP,
+      skillTitle: 'BootstrapCSS',
       type: TechSkillTypeEnum.FRONTEND,
       level: 6,
     },
@@ -213,12 +227,6 @@ export const data: Data = {
       skillTitle: 'Redux',
       type: TechSkillTypeEnum.FRONTEND,
       level: 5,
-    },
-    {
-      skillId: TechSkillIdEnum.BOOTSTRAP,
-      skillTitle: 'BootstrapCSS',
-      type: TechSkillTypeEnum.FRONTEND,
-      level: 6,
     },
     {
       skillId: TechSkillIdEnum.JQUERY,
